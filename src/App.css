@@ -6,13 +6,13 @@
   padding: 10px;
   padding-left: 10px;
   display: grid;
-  width:98%;
- 
+  width: 98%;
+
   margin: auto;
 }
 
 .c1 {
-  background-color: #04c4ff; 
+  background-color: #04c4ff;
   border: none;
   color: rgb(0, 0, 0);
   padding: 15px 32px;
@@ -20,6 +20,6 @@
   display: inline-block;
   font-size: 16px;
 }
-li{
+li {
   font-size: large;
 }

@@ -7,7 +7,8 @@ import Connections from './components/Connections'
 import Coursesandexams from './components/Coursesandexams'
 import Login from './components/login'
 import Profile from './components/profile'
-import Signup from './components/Signup'
+import SignupUser from './components/SignupUser'
+import SignupCompany from './components/SignupCompany'
 import CoursesandExams from './components/Coursesandexams';
 import Navbar from './components/Navbar'
 import './App.css';
@@ -26,7 +27,8 @@ class App extends Component {
           <Route path='/Coursesandexams' element={<CoursesandExams />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/Signup' element={<Signup />} />
+          <Route path='/SignupUser' element={<SignupUser />} />
+          <Route path='/SignupCompany' element={<SignupCompany />} />
           <Route path='/Connections' element={<Connections />} /> </Routes> 
         </div>
         

@@ -33,7 +33,8 @@ class Signuser extends React.Component
         width : "1500px",
         height:"1500px",
         marginLeft:"5%",
-   
+        paddingLeft:"30%",
+        paddingRight:"30%",
         background:"#abdbe3",
         borderStyle:"solid",
         borderWidth:"2px ",
@@ -53,9 +54,9 @@ class Signuser extends React.Component
             <br/><br/>
             Set password<br/><input name = "pass" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            Skills<br/><input name = "skills" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
+            Skills<br/><textarea name = "skills" onChange = {this.handleChange} type = "text" style = {{height:"150px",fontSize:"30px",width:"550px"}}/>
             <br/><br/>
-            Experience<br/><input name = "exp" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
+            Experience<br/><textarea name = "exp" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"150px",fontSize:"30px",width:"550px"}}/>
             <br/><br/>
             
             <button style = {{height:'50px',width:"300px",fontSize:"25px"}} onClick = {this.handleClick}>CREATE ACCOUNT </button>
@@ -66,7 +67,7 @@ class Signuser extends React.Component
 
 }
 
-class Signup extends React.Component
+class SignupUser extends React.Component
 {
 render(){
     return <Signuser/>
@@ -75,4 +76,4 @@ render(){
 }
 }
 
-export default Signup        
+export default SignupUser       

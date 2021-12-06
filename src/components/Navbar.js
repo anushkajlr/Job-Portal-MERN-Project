@@ -12,7 +12,8 @@ return (
     <li><NavLink to="/Connections">Connections</NavLink></li>
     <li><NavLink to="/profile">Profile</NavLink></li>
     <li><NavLink to="/login">Login</NavLink></li>
-    <li><NavLink to="/Signup">Sign Up</NavLink></li>
+    <li><NavLink to="/SignupUser">Sign Up User</NavLink></li>
+    <li><NavLink to="/SignupCompany">Sign Up Company</NavLink></li>
     </ul>
     </div>
 </nav>
