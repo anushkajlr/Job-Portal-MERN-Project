@@ -1,5 +1,5 @@
 import React from 'react'
-
+import axios from "axios"
 class Signuser extends React.Component
 {
     handleChange = (event)=>{
@@ -16,7 +16,15 @@ class Signuser extends React.Component
     }
     handleClick = (e)=>{
         e.preventDefault();
-        console.log(this.state);
+        // //const {}
+        // axios.post("http://localhost:9002/SignupUser",this.state)
+        // .then(res=>console.log(res))
+        // console.log(this.state);
+            axios.post("http://localhost:9000/SignupUser", this.state)
+            .then(res => {
+                console.log(res.data)
+                
+        })
     }
 
     constructor(props)

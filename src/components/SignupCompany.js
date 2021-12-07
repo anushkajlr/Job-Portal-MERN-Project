@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from "axios"
+
 class Logo extends React.Component
 {
     render(){
@@ -34,8 +36,17 @@ class Signcompany extends React.Component
     }
     handleClick = (e)=>{
         e.preventDefault();
-        console.log(this.state);
+        // //const {}
+        // axios.post("http://localhost:9002/SignupUser",this.state)
+        // .then(res=>console.log(res))
+        // console.log(this.state);
+            axios.post("http://localhost:9000/SignupCompany", this.state)
+            .then(res => {
+                console.log(res.data)
+                
+        })
     }
+
 
     constructor(props)
     {
