@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 class Logo extends React.Component
 {
     render(){
@@ -19,33 +20,41 @@ class Logo extends React.Component
 }
 class Form extends React.Component
 {
+    handleChange = (event)=>{
+        var name1 = event.target.name
+        var value1 = event.target.value
+        this.setState({
+        ...this.state.form,
+        form:{
+        ...this.state.form,
+        [name1]:[value1]
+        }
+        }) 
+
+    }
+
     handleClickComp = (e)=>{
         e.preventDefault();
-        console.log(this.setUser.current.value);
-        console.log(this.setPass.current.value);
+        
         axios.post("http://localhost:9000/LoginCompany", this.state)
-            .then(res => {
-                console.log(res.data)
-                
-        })
-
+     
     }
+
+    
     handleClickUser = (e)=>{
         e.preventDefault();
-        console.log(this.setUser.current.value);
-        console.log(this.setPass.current.value);
+        
         axios.post("http://localhost:9000/LoginUser", this.state)
-            .then(res => {
-                console.log(res.data)
-                
-        })
-
+            //console.log(this.state)
+       
     }
+    
     constructor(props)
     {
+    
         super(props);
-        this.setUser=React.createRef();
-        this.setPass=React.createRef();    
+        this.state = {"name":"","pass":""}    
+    
     }
     render()
     {
@@ -66,13 +75,15 @@ class Form extends React.Component
         
         return(
             <div>
+                 
             <form style = {fstyle}>
             <p style = {{fontSize:"25px",color:"#1e81b0"}}><b>LOGIN TO CONTINUE</b></p><br/><br/>   
-            Username<br/><input type = "text" size = "30"style = {{height:"25px"}} ref = {this.setUser}/>
+           
+            Username<br/><input type = "text" size = "30"style = {{height:"25px"}} name = "name" onChange = {this.handleChange}/>
             <br/><br/>
-            Password<br/><input type = "text" size = "30"style = {{height:"25px"}}  ref = {this.setPass}/>
+            Password<br/><input type = "text" name = "pass" size = "30"style = {{height:"25px"}}  onChange = {this.handleChange}/>
             <br/><br/>
-            <button onClick = {this.handleClickComp}>LOGIN AS COMMPANY</button>
+            <button onClick = {this.handleClickComp}>LOGIN AS COMPANY</button><br/>
             <button onClick = {this.handleClickUser}>LOGIN AS USER</button>
             </form>
             </div>)

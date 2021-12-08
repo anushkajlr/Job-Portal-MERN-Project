@@ -81,12 +81,7 @@ app.post("/SignupUser", (req, res)=> {
                 })
             })
             //comment by anushka
-    
-
-
-
-
-                
+           
 })
 
     //const { email, password} = req.body
@@ -115,9 +110,7 @@ app.post("/SignupUser", (req, res)=> {
 app.post("/SignupCompany", (req, res)=> {
     
     
-
-
-    //const { email, password} = req.body
+        //const { email, password} = req.body
     //User.findOne({ email: email}, (err, user) => {
     //this.state = {"name":"","contact":"","pass":"","skills":"","pos":""}    
     const name = req.body.form.name.toString();
@@ -125,50 +118,37 @@ app.post("/SignupCompany", (req, res)=> {
     const pass = req.body.form.pass.toString();
     const skills = req.body.form.skills.toString();
     const pos = req.body.form.pos.toString();
-    User.findOne({name: name}, (err, user) => {
-        if(user){
-            res.send({message: "Company already registerd"});
-            console.log({message: "Company already registerd"});
-            
-        } 
-        else {
-            console.log(user);
-            const company = new Company({
-                name:name,
-                contact:contact,
-                pass:pass,
-                skills:skills,
-                pos:pos})
+    const user = new User({
+        name:name,
+        contact:contact,
+        pass:pass,
+        skills:skills,
+        pos:pos,
+        })
+   
             MongoClient.connect(url, function(err, db) {
                     if (err) throw err;
                     var dbo = db.db("newdb");
                
-                    dbo.collection("newcompany").insertOne(company, function(err, res) {
-                      if (err) throw err;
-                      else
-                      {
-                        console.log(company);
-                        console.log({message: "Company successfully added"});
-                      }
-                      company.save(err => {
-                        if(err) {
-                            console.log(err)
-                        } else {
-                            console.log( { message: "Successfully Registered, Please login now." })
+                    dbo.collection("newcompany").findOne({name:name}, function(err, res) {
+                        if (res) 
+                        {
+                         console.log("Already registered")
+                        }
+                        else{
+                            dbo.collection("newcomp").insertOne(user, function(err, res){
+                                if (err) throw err;
+                         else{
+                            console.log(user);
+                            console.log({message: "record inserted"});
+                          }
+                        db.close();
+        
+                            })
+        
                         }
                     })
-                   
-                      db.close();
-                      
-                    });
-                  });
-            
-            
-        }
     })
-    
-   
-
     // user.save(err => {
     //         if(err) {
     //             res.send("Problem")
@@ -176,12 +156,60 @@ app.post("/SignupCompany", (req, res)=> {
     //             res.send(user.name)
     //         }
     //     })
-    
-
-    
-    
-
 }) 
+
+app.post("/LoginUser", (req, res)=> {
+    const name = req.body.form.name.toString();
+        
+        const pass = req.body.form.pass.toString();
+       
+        const user = new User({
+            name:name,
+            
+            pass:pass,
+            })
+            MongoClient.connect(url, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("newdb");
+                dbo.collection("newuser").findOne({name: name, pass:pass}, function(err, res) {
+                    if (res) 
+                    {
+                     console.log("Login successfull")
+                    }
+                    else{
+                        console.log({message: "Incorrect credentials"});
+                    }
+                })
+            })
+            
+})
+
+
+app.post("/LoginCompany", (req, res)=> {
+    const name = req.body.form.name.toString();
+        
+        const pass = req.body.form.pass.toString();
+       
+        const user = new User({
+            name:name,
+            
+            pass:pass,
+            })
+            MongoClient.connect(url, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("newdb");
+                dbo.collection("newcompany").findOne({name: name, pass:pass}, function(err, res) {
+                    if (res) 
+                    {
+                     console.log("Login successfull")
+                    }
+                    else{
+                        console.log({message: "Incorrect credentials"});
+                    }
+                })
+            })
+            
+})
 
 app.listen(9000,() => {
     console.log("BE started at port 9000")})
