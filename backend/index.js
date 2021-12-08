@@ -45,13 +45,7 @@ var url = "mongodb://localhost:27017/";
 
 
 app.post("/SignupUser", (req, res)=> {
-    
-    User.findOne({email: email}, (err, user) => {
-        if(user){
-            res.send({message: "User already registerd"})
-            console.log({message: "User already registerd"})
-        } else {
-            const name = req.body.form.name.toString();
+    const name = req.body.form.name.toString();
         const email = req.body.form.email.toString();
         const pass = req.body.form.pass.toString();
         const skills = req.body.form.skills.toString();
@@ -64,26 +58,35 @@ app.post("/SignupUser", (req, res)=> {
             skills:skills,
             exp:exp,
             dob:dob})
-        MongoClient.connect(url, function(err, db) {
+            MongoClient.connect(url, function(err, db) {
                 if (err) throw err;
                 var dbo = db.db("newdb");
-        
-                dbo.collection("newuser").insertOne(user, function(err, res) {
-                if (err) throw err;
-                else{
-                console.log(company);
-                console.log({message: "User successfully registered"});
-              }
-            
-                db.close();
-                });
-            });
-                
-            
-            }
-    })
-}) 
+                dbo.collection("newuser").findOne({email:email}, function(err, res) {
+                    if (res) 
+                    {
+                     console.log("Already registered")
+                    }
+                    else{
+                        dbo.collection("newuser").insertOne(user, function(err, res){
+                            if (err) throw err;
+                     else{
+                        console.log(user);
+                        console.log({message: "record inserted"});
+                      }
+                    db.close();
 
+                        })
+
+                    }
+                })
+            })
+    
+
+
+
+
+                
+})
 
     //const { email, password} = req.body
     //User.findOne({ email: email}, (err, user) => {
@@ -128,6 +131,7 @@ app.post("/SignupCompany", (req, res)=> {
             
         } 
         else {
+            console.log(user);
             const company = new Company({
                 name:name,
                 contact:contact,
@@ -143,8 +147,15 @@ app.post("/SignupCompany", (req, res)=> {
                       else
                       {
                         console.log(company);
-                        console.log({message: "Company successfully registered"});
+                        console.log({message: "Company successfully added"});
                       }
+                      company.save(err => {
+                        if(err) {
+                            console.log(err)
+                        } else {
+                            console.log( { message: "Successfully Registered, Please login now." })
+                        }
+                    })
                    
                       db.close();
                       

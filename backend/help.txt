@@ -8,4 +8,26 @@
            
         }
     })
+
+
+            // MongoClient.connect(url, function(err, db) {
+        //     if (err) throw err;
+        //     var dbo = db.db("newdb");
+        //     dbo.collection("newuser").findOne(user, function(err, res) {
+        //         if (res) 
+        //             console.log("Already registered")
+        //         else{
+                
+        //             dbo.collection("newuser").insertOne(user, function(err, res) {
+        //                 if (err) throw err;
+        //                 else{
+        //                 console.log(user);
+        //                 console.log({message: "record inserted"});
+        //               }
+        //               db.close();
+        //             })
+        //             }
+        //     }
+
+        //             })
     
