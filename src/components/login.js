@@ -19,10 +19,26 @@ class Logo extends React.Component
 }
 class Form extends React.Component
 {
-    handleClick = (e)=>{
+    handleClickComp = (e)=>{
         e.preventDefault();
         console.log(this.setUser.current.value);
         console.log(this.setPass.current.value);
+        axios.post("http://localhost:9000/LoginCompany", this.state)
+            .then(res => {
+                console.log(res.data)
+                
+        })
+
+    }
+    handleClickUser = (e)=>{
+        e.preventDefault();
+        console.log(this.setUser.current.value);
+        console.log(this.setPass.current.value);
+        axios.post("http://localhost:9000/LoginUser", this.state)
+            .then(res => {
+                console.log(res.data)
+                
+        })
 
     }
     constructor(props)
@@ -56,7 +72,8 @@ class Form extends React.Component
             <br/><br/>
             Password<br/><input type = "text" size = "30"style = {{height:"25px"}}  ref = {this.setPass}/>
             <br/><br/>
-            <button onClick = {this.handleClick}>LOGIN</button>
+            <button onClick = {this.handleClickComp}>LOGIN AS COMMPANY</button>
+            <button onClick = {this.handleClickUser}>LOGIN AS USER</button>
             </form>
             </div>)
     }
