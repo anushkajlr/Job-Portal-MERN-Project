@@ -7,7 +7,7 @@ return (
     <a className="brand-logo">Fresh Start</a>
     <ul className="right">
     <li><Link to="/">Home</Link></li>
-    <li><NavLink to="/Jobs">Jobs</NavLink></li>
+    <li><NavLink to="/PostJobs">Post Jobs</NavLink></li>
     <li><NavLink to="/Coursesandexams">Courses and Exams</NavLink></li>
     <li><NavLink to="/Connections">Connections</NavLink></li>
     <li><NavLink to="/profile">Profile</NavLink></li>

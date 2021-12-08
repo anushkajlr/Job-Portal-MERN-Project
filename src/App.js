@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Downbar from './components/Downbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
-import Jobs from './components/Jobs'
+import PostJobs from './components/PostJobs'
 import Connections from './components/Connections'
-import Coursesandexams from './components/Coursesandexams'
 import Login from './components/login'
 import Profile from './components/profile'
 import SignupUser from './components/SignupUser'
@@ -23,7 +22,7 @@ class App extends Component {
         <Navbar />
           <Routes><Route exact path='/' element={<Home />} />
           
-          <Route path='/Jobs' element={<Jobs />} />
+          <Route path='/PostJobs' element={<PostJobs />} />
           <Route path='/Coursesandexams' element={<CoursesandExams />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
