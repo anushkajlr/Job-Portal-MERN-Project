@@ -65,6 +65,7 @@ app.post("/SignupUser", (req, res)=> {
                     if (res) 
                     {
                      console.log("Already registered")
+                     
                     }
                     else{
                         dbo.collection("newuser").insertOne(user, function(err, res){
@@ -211,5 +212,28 @@ app.post("/LoginCompany", (req, res)=> {
             
 })
 
+
+app.post("/connect", (req, res)=> {
+    
+            MongoClient.connect(url, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("newdb");
+                db.cololection("newcompany").find({}, function(err, res) {
+                    if (res) 
+                    {
+                     console.log(res)
+                    }
+                    else{
+                        //console.log({message: "Incorrect credentials"});
+                    }
+                })
+            })
+            
+})
+
 app.listen(9000,() => {
     console.log("BE started at port 9000")})
+    
+    module.exports = {
+       Company, User
+    }
