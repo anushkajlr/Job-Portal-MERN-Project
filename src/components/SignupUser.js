@@ -22,7 +22,12 @@ class Signuser extends React.Component
         // console.log(this.state);
             axios.post("http://localhost:9000/SignupUser", this.state)
             .then(res => {
-                console.log(res.data)
+                alert(res.data.message)
+                console.log(res.data.message);
+                if(res.data.message == "Successfully registered")
+                {
+                    window.location.href="http://localhost:3000/login"
+                }
                 
         })
     }
@@ -67,7 +72,7 @@ class Signuser extends React.Component
             Experience<br/><textarea name = "exp" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"150px",fontSize:"30px",width:"550px"}}/>
             <br/><br/>
             
-            <button style = {{height:'50px',width:"300px",fontSize:"25px"}} onClick = {this.handleClick}>CREATE ACCOUNT </button>
+            <button style = {{height:'50px',width:"300px",fontSize:"25px",backgroundColor:"#609FFC"}} onClick = {this.handleClick}>CREATE ACCOUNT </button>
             </form>
             </div>)
     }

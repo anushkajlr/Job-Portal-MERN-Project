@@ -9,7 +9,7 @@ return (
     <li><Link to="/">Home</Link></li>
     <li><NavLink to="/PostJobs">Post Jobs</NavLink></li>
     <li><NavLink to="/Coursesandexams">Courses and Exams</NavLink></li>
-    <li><NavLink to="/Connections">Connections</NavLink></li>
+    
     <li><NavLink to="/profile">Profile</NavLink></li>
     <li><NavLink to="/login">Login</NavLink></li>
     <li><NavLink to="/SignupUser">Sign Up User</NavLink></li>

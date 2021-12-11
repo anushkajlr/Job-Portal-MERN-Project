@@ -42,7 +42,12 @@ class Signcompany extends React.Component
         // console.log(this.state);
             axios.post("http://localhost:9000/SignupCompany", this.state)
             .then(res => {
-                console.log(res.data)
+                alert(res.data.message)
+                console.log(res.data.message);
+                if(res.data.message == "Successfully registered")
+                {
+                    window.location.href="http://localhost:3000/login"
+                }
                 
         })
     }
@@ -86,7 +91,7 @@ class Signcompany extends React.Component
             Free Positions<br/><textarea name = "pos" onChange = {this.handleChange} type = "text"  style = {{height:"150px",fontSize:"30px",width:"550px"}}/>
             <br/><br/>
             
-            <button style = {{height:'50px',width:"300px",fontSize:"25px"}} onClick = {this.handleClick}>CREATE ACCOUNT </button>
+            <button style = {{height:'50px',width:"300px",fontSize:"25px",backgroundColor:"#609FFC"}} onClick = {this.handleClick}>CREATE ACCOUNT </button>
             </form>
             </div>)
     }
@@ -99,7 +104,7 @@ class SignupCompany extends React.Component
 render(){
     return(
     <div>
-    <Logo/>
+
     <Signcompany/>
     
     </div>)

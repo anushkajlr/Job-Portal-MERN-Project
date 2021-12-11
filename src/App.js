@@ -3,7 +3,7 @@ import Downbar from './components/Downbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import PostJobs from './components/PostJobs'
-import Connections from './components/Connections'
+//import Connections from './components/Connections'
 import Login from './components/login'
 import Profile from './components/profile'
 import SignupUser from './components/SignupUser'
@@ -28,7 +28,7 @@ class App extends Component {
           <Route path='/profile' element={<Profile />} />
           <Route path='/SignupUser' element={<SignupUser />} />
           <Route path='/SignupCompany' element={<SignupCompany />} />
-          <Route path='/Connections' element={<Connections />} /> </Routes> 
+     </Routes> 
         </div>
         
         <Downbar id="bottom" />

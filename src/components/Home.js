@@ -3,9 +3,7 @@ const Home = () => {
 return(
 <div className="container">
 <h4 className="center">Home</h4>
-<input type="text" placeholder="Search Jobs Here"/>
-<button>Search</button>
-<div class="right"><button class="right-align">Post Job Here</button></div>
+<div style = {{fontSize:"24px"}}><a href = "http://localhost:3000/PostJobs">Post Job Here</a></div>
 
               <div>
                
@@ -103,6 +101,7 @@ class Jobs extends React.Component {
 
           <button type="button" class="c1"
             onClick={() => {
+              window.location.href="http://localhost:3000/login"
              
             }}> Apply Now!
           </button>

@@ -33,7 +33,7 @@ class Post extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {"jobtitle":""}    
+        this.state = {"name":"","contact":"","pass":"","skills":"","pos":""}    
     }
     render()
     {
@@ -58,23 +58,24 @@ class Post extends React.Component
                 <h2></h2>
             <form style = {fstyle}>
             <p style = {{fontSize:"50px",color:"#1e81b0"}}><b>Find a great hire, fast!!</b></p><br/><br/>   
-            Job Title:<br/><input name = "jobtitle" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
+            Job Title:<br/><input name = "name" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            Company:<br/><input name = "company" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
+            Company:<br/><input name = "contact" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            Workplace Type:<br/><input name = "workplacetype" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
+            Workplace Type:<br/><input name = "pass" onChange = {this.handleChange} type = "text" size = "40" style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            Job Location:<br/><input name = "joblocation" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
+            Job Location:<br/><input name = "skills" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            Work experience:<br/><input name = "workexperience" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
+            Work experience:<br/><input name = "skills" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            
-            Degree:<br/><input name = "degree" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
+            Tool or Technology:<br/><input name = "skills" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-            
+            Degree:<br/><input name = "skills" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
+            <br/><br/>
+            Free Positions<br/><textarea name = "pos" onChange = {this.handleChange} type = "text"  style = {{height:"150px",fontSize:"30px",width:"550px"}}/>
+            <br/><br/>
             Employment Type:<br/><input name = "emptype" placeholder="Full Time/Part Time/Contract" onChange = {this.handleChange} type = "text"  style = {{height:"50px",fontSize:"30px"}}/>
             <br/><br/>
-
             
             
             <button style = {{height:'50px',width:"300px",fontSize:"25px"}} onClick = {this.handleClick}>Get Started</button>
@@ -87,12 +88,14 @@ class Post extends React.Component
 
 class PostJobs extends React.Component
 {
-        render(){
-            return(
-            <div>
-            <Post/>
-            </div>)
-        }
+render(){
+    return(
+    <div>
+  
+    <Post/>
+    
+    </div>)
+}
 }
 
 
