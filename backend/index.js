@@ -100,12 +100,7 @@ app.post("/SignupUser", (req, result)=> {
                 })
             })
             //comment by anushka
-    
-
-
-
-
-                
+           
 })
 
     //const { email, password} = req.body
@@ -135,9 +130,7 @@ app.post("/SignupCompany", (req, result)=> {
     
     
     
-
-
-    //const { email, password} = req.body
+        //const { email, password} = req.body
     //User.findOne({ email: email}, (err, user) => {
     //this.state = {"name":"","contact":"","pass":"","skills":"","pos":""}    
     const name = req.body.form.name.toString();
@@ -190,10 +183,10 @@ app.post("/SignupCompany", (req, result)=> {
     //             res.send(user.name)
     //         }
     //     })
-    
+}) 
 
     
-}) 
+
 app.post("/PostJobs", (req, res)=> {
     const jobtitle = req.body.form.jobtitle.toString();
     const company = req.body.form.company.toString();
@@ -311,3 +304,7 @@ app.post("/LoginCompany", (req, result)=> {
 //})
 app.listen(9000,() => {
     console.log("BE started at port 9000")})
+    
+    module.exports = {
+       Company, User
+    }
